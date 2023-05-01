@@ -75,10 +75,11 @@ const Footer = () => {
       <hr className="mt-9  text-gray-50" />
       <div className="my-container flex justify-between">
         <p className=" text-base  text-gray-400">
-        &#169;2023 Seoul Kitchenista. All Rights Reserved
+          &#169;2023 Seoul Kitchenista. All Rights Reserved
         </p>
         <p className=" text-base  text-gray-400">
-          Powered by <span className="text-xl font-semibold">Seoul Kitchenista</span>
+          Powered by{" "}
+          <span className="text-xl font-semibold">Seoul Kitchenista</span>
         </p>
       </div>
     </div>
