@@ -1,39 +1,61 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
-const Login = () => {
-    // const { loginUser, continueWithGoogle } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
+const Register = () => {
   const [show, setShow] = useState(false);
+  const [confirmShow, setConfirmShow] = useState(false);
+//   const { createUserWithEmail } = useContext(AuthContext);
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
+    console.log(email, password, confirmPassword);
 
-  console.log("login page", location);
-  const from = location.state?.from?.pathname || "/";
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const htmlForm = e.target;
-    const email = htmlForm.email.value;
-    const password = htmlForm.password.value;
-    console.log(email, password);
-    loginUser(email, password)
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+    } else if (password !== confirmPassword) {
+      toast.error("Your password did not match");
+      return;
+    }
+
+    createUserWithEmail(email, password)
       .then((result) => {
-        const loginUser = result.user;
-        console.log(loginUser);
-        navigate(from, { replace: true });
+        const loggedUser = result.user;
+        toast.success("Sign Up Successfully");
+        form.reset();
+        console.log(loggedUser);
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message);
       });
   };
   return (
     <div className="mb-20">
-    <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
-        Login your account
+     <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
+        Register your account
       </h3>
-      <form onSubmit={handleLogin} className="my-container md:w-4/6 lg:w-3/6 ">
+      <form  className="my-container md:w-4/6 lg:w-3/6 ">
+      <div className="mb-6">
+          <label
+            htmlFor="name"
+            className="block mb-2 text-sm font-medium text-green-900 dark:text-white"
+          >
+            Your name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Your name"
+            required
+          />
+        </div>
         <div className="mb-6">
           <label
             htmlFor="email"
@@ -43,8 +65,8 @@ const Login = () => {
           </label>
           <input
             type="email"
-            id="email"
             name="email"
+            id="email"
             className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Your email address"
             required
@@ -87,13 +109,13 @@ const Login = () => {
           type="submit"
           className="text-white btn  focus:ring-4 focus:outline-none flex justify-center w-full font-medium rounded-lg "
         >
-          Login
+          Register
         </button>
         <div className="mb-4">
         <p className="text-center text-gray-700 mt-2">
-        Don't Have An Account ?{" "}
-        <Link to="/register" className="text-red-700">
-          Register
+        Already Have An Account ?{" "}
+        <Link to="/login" className="text-red-700">
+          Login
         </Link> 
         
       </p>
@@ -127,8 +149,8 @@ const Login = () => {
 
       
       
-    </div>
+      </div>
   );
 };
 
-export default Login;
+export default Register;
