@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 import {
+    GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -35,6 +36,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+//   Continue with GitHub
+const githubProvider = new GithubAuthProvider();
+const continueWithGithub = () =>{
+    return signInWithPopup(auth, githubProvider);
+}
+
   // sign in
   const loginUser = (email, password) => {
     setLoading(true);
@@ -65,6 +72,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     continueWithGoogle,
+    continueWithGithub,
     loading,
     createUser,
     loginUser,

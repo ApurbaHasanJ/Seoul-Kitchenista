@@ -5,25 +5,24 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
   const [show, setShow] = useState(false);
-  const [confirmShow, setConfirmShow] = useState(false);
-//   const { createUserWithEmail } = useContext(AuthContext);
+  //   const [confirmShow, setConfirmShow] = useState(false);
+  const { createUser,  userProfile, continueWithGoogle, continueWithGithub } = useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirmPassword.value;
-    console.log(email, password, confirmPassword);
-
+    console.log(email, password);
+ 
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters");
-    } else if (password !== confirmPassword) {
-      toast.error("Your password did not match");
-      return;
     }
 
-    createUserWithEmail(email, password)
+    createUser(email, password)
       .then((result) => {
+        userProfile(name, photo)
         const loggedUser = result.user;
         toast.success("Sign Up Successfully");
         form.reset();
@@ -34,16 +33,40 @@ const Register = () => {
         toast.error(err.message);
       });
   };
+
+  const googleSignIn = ()=>{
+    continueWithGoogle()
+    .then((result) => {
+        const loggedUser = result.user;
+        toast.success("Sign in Successfully");
+        console.log(loggedUser);
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    })
+  }
+  const githubSignIn = ()=>{
+    continueWithGithub()
+    .then((result) => {
+        const loggedUser = result.user;
+        toast.success("Sign in Successfully");
+        console.log(loggedUser);
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    })
+  }
   return (
-    <div className="mb-20">
-     <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
+    <div className="my-20">
+      <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
         Register your account
       </h3>
-      <form  className="my-container md:w-4/6 lg:w-3/6 ">
-      <div className="mb-6">
+      <div className="my-container md:w-4/6 lg:w-3/6 ">
+        <form onSubmit={handleSignUp} className="bg-orange-100 p-12 rounded-lg">
+        <div className="mb-6">
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-green-900 dark:text-white"
+            className="block mb-2 text-md font-medium text-green-900 dark:text-white"
           >
             Your name
           </label>
@@ -58,8 +81,25 @@ const Register = () => {
         </div>
         <div className="mb-6">
           <label
+            htmlFor="photo"
+            className="block mb-2 text-md font-medium text-green-900 dark:text-white"
+          >
+            Your photo url
+          </label>
+          <input
+            type="text"
+            name="photo"
+            id="photo"
+            className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="https://exaple.jpg"
+            required
+            
+          />
+        </div>
+        <div className="mb-6">
+          <label
             htmlFor="email"
-            className="block mb-2 text-sm font-medium text-green-900 dark:text-white"
+            className="block mb-2 text-md font-medium text-green-900 dark:text-white"
           >
             Your email
           </label>
@@ -111,45 +151,42 @@ const Register = () => {
         >
           Register
         </button>
+        </form>
         <div className="mb-4">
-        <p className="text-center text-gray-700 mt-2">
-        Already Have An Account ?{" "}
-        <Link to="/login" className="text-red-700">
-          Login
-        </Link> 
-        
-      </p>
-          </div>
-          <div className="flex justify-center items-center gap-5">
-            <div className="border-b h-1 w-full border-gray-300"></div>
-            <span>or</span>
-            <div className="border-b h-1 w-full border-gray-300"></div>
-          </div>
-          <div className="form-control  mt-4">
-            <button className=" w-full bg-orange-200 p-2 rounded drop-shadow-lg text-base flex justify-center items-center border-gray-300 gap-2 hover:bg-secondary hover:bg-orange-300 text-black">
-              <img
-                className="w-7 h-7"
-                src="https://i.postimg.cc/4NhHcV5v/google.png"
-                alt=""
-              />
-              <span className="capitalize ">Continue With Google</span>
-            </button>
-          </div>
-          <div className="form-control  mt-4">
-            <button className=" w-full bg-slate-200 p-2 rounded drop-shadow-lg text-base flex justify-center items-center border-gray-300 gap-2 hover:bg-secondary hover:bg-slate-300 text-black">
-              <img
-                className="w-7 h-7"
-                src="https://i.postimg.cc/wjSV0NTd/github.png"
-                alt=""
-              />
-              <span className="capitalize ">Continue With Github</span>
-            </button>
-          </div>
-      </form>
-
-      
-      
+          <p className="text-center text-gray-700 mt-2">
+            Already Have An Account ?{" "}
+            <Link to="/login" className="text-red-700">
+              Login
+            </Link>
+          </p>
+        </div>
+        <div className="flex justify-center items-center gap-5">
+          <div className="border-b h-1 w-full border-gray-300"></div>
+          <span>or</span>
+          <div className="border-b h-1 w-full border-gray-300"></div>
+        </div>
+        <div className="form-control  mt-4">
+          <button onClick={googleSignIn} className=" w-full  bg-orange-200 p-2 rounded drop-shadow-lg text-base flex justify-center items-center border-gray-300 gap-2 hover:bg-secondary hover:bg-orange-300 text-black">
+            <img
+              className="w-7 h-7"
+              src="https://i.postimg.cc/4NhHcV5v/google.png"
+              alt=""
+            />
+            <span className="capitalize ">Continue With Google</span>
+          </button>
+        </div>
+        <div className="form-control  mt-4">
+          <button onClick={githubSignIn} className=" w-full bg-slate-200 p-2 rounded drop-shadow-lg text-base flex justify-center items-center border-gray-300 gap-2 hover:bg-secondary hover:bg-slate-300 text-black">
+            <img
+              className="w-7 h-7"
+              src="https://i.postimg.cc/wjSV0NTd/github.png"
+              alt=""
+            />
+            <span className="capitalize ">Continue With Github</span>
+          </button>
+        </div>
       </div>
+    </div>
   );
 };
 

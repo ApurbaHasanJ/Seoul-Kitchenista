@@ -17,10 +17,10 @@ const Navbar = () => {
         {/* Logo Section */}
         <Link to="/" className="inline-flex items-center">
           
-          <img className="lg:h-14 lg:w-14 md:h-7 md:w-7 h-6 w-6" 
+          <img className="lg:h-14 lg:w-14 md:h-10 md:w-10 h-7 w-7" 
           src="https://i.postimg.cc/MpC00ZfX/chef.png" 
           alt="Company Logo" />
-          <span className="ml-2 lg:text-3xl md:text-2xl text-xl font-bold tracking-wide text-gray-800">
+          <span className="ml-2 text-green-900 lg:text-3xl md:text-2xl text-xl font-bold tracking-wide ">
             Seoul Kitchenista
           </span>
         </Link>

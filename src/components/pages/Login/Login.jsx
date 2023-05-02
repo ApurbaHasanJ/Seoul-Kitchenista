@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
-    // const { loginUser, continueWithGoogle } = useContext(AuthContext);
+    const { loginUser, continueWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [show, setShow] = useState(false);
@@ -29,11 +29,13 @@ const Login = () => {
       });
   };
   return (
-    <div className="mb-20">
+    <div className="my-20">
     <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
         Login your account
       </h3>
-      <form onSubmit={handleLogin} className="my-container md:w-4/6 lg:w-3/6 ">
+      <div className="my-container md:w-4/6 lg:w-3/6 ">
+      <form onSubmit={handleLogin} className="bg-orange-100 p-12 rounded-lg">
+
         <div className="mb-6">
           <label
             htmlFor="email"
@@ -89,6 +91,7 @@ const Login = () => {
         >
           Login
         </button>
+      </form>
         <div className="mb-4">
         <p className="text-center text-gray-700 mt-2">
         Don't Have An Account ?{" "}
@@ -123,7 +126,7 @@ const Login = () => {
               <span className="capitalize ">Continue With Github</span>
             </button>
           </div>
-      </form>
+      </div>
 
       
       
