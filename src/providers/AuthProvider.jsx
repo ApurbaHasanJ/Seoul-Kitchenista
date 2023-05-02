@@ -10,10 +10,11 @@ import {
 // import { app } from "../Firebase/firebase.config";
 import { useEffect } from "react";
 import { useState } from "react";
+import app from "../Firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 
-// const auth = getAuth(app);
+const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
