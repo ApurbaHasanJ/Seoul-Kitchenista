@@ -6,12 +6,14 @@ import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import ChefRecipes from "../../pages/ChefRecipes/ChefRecipes";
+import { serverData } from "../../loader/getData";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main/>,
         errorElement: <ErrorPage/>,
+        loader: serverData,
         children: [
             {
                 path: '/',
@@ -31,10 +33,8 @@ const router = createBrowserRouter([
                 element: <Register/>
             },
             {
-                path: `/chef-recipes/:id`,
+                path: `/recipes/:id`,
                 element: <ChefRecipes/>,
-                loader: ({params}) => fetch(``)
-
             }
         ]
     }

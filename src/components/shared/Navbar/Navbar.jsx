@@ -13,7 +13,7 @@ import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log('user:', user);
+  // console.log('user:', user);
 
 
   // Loading spinner
@@ -34,7 +34,7 @@ const Navbar = () => {
       });
   };
 
-  console.log(user);
+  // console.log(user);
   
   return (
     <div className=" px-4 py-2 ">
