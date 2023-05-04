@@ -1,6 +1,17 @@
 import React from "react";
 import { useNavigation } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import {  } from '@react-pdf-viewer/core';
+
+// Plugins
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
+
+// Import styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+
+// Create new plugin instance
+const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
 const Blogs = () => {
   const navigation = useNavigation();
@@ -9,6 +20,7 @@ const Blogs = () => {
   }
   return (
     <>
+  
       {/* header section */}
       <section className=" relative drop-shadow-xl pb-6">
         <h3 className=" text-4xl text-black text-center font-bold border-b pb-5 mb-5">
