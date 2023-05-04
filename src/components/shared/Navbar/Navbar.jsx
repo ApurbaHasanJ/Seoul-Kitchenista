@@ -1,17 +1,20 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
-  BoltIcon,
   Bars3BottomRightIcon,
   XMarkIcon,
-  UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../providers/AuthProvider";
+import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 
 const Navbar = () => {
-  const { user, logOut, loading } = useContext(AuthContext);
+  const { user, logOut, loading} = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  if(loading){
+    return <LoadingSpinner/>
+  }
 
   // Handle Logout
   const handleLogout = () => {

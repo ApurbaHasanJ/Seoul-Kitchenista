@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { useNavigation } from "react-router-dom";
-import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
-import { FaArrowRight } from "react-icons/fa";
 import {
   BsFillHeartFill,
   BsStar,
