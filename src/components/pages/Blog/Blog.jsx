@@ -14,6 +14,7 @@ const Blogs = () => {
         <h3 className=" text-4xl text-black text-center font-bold border-b pb-5 mb-5">
           Blog
         </h3>
+        <button className="btn ml-2 lg:ml-16">Download pdf</button>
       </section>
 
       {/* Blog page body */}
