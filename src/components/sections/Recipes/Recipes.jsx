@@ -34,7 +34,7 @@ const Recipes = ({ recipe }) => {
             {name}
           </h5>
           <h5 className="mb-4 flex items-center gap-3 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {rating}
+            Rating: {rating}
             <Rating
               placeholderRating={rating}
               emptySymbol={<BsStar className="icon text-white ml-2" />}
@@ -42,6 +42,7 @@ const Recipes = ({ recipe }) => {
                 <BsStarFill className="icon text-yellow-300 ml-2" />
               }
               fullSymbol={<BsStarHalf className="icon text-yellow-300 pm-1" />}
+              readonly
             />
           </h5>
 
