@@ -7,36 +7,40 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import ChefRecipes from "../../pages/ChefRecipes/ChefRecipes";
 import { serverData } from "../../loader/getData";
+import PrivateRoute from "../PrivateRouter/PrivateRoute";
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main/>,
-        errorElement: <ErrorPage/>,
-        loader: serverData,
-        children: [
-            {
-                path: '/',
-                element: <Home/>,
-                
-            },
-            {
-                path: '/blog',
-                element: <Blog/>
-            },
-            {
-                path: '/login',
-                element: <Login/>
-            },
-            {
-                path: '/register',
-                element: <Register/>
-            },
-            {
-                path: `/recipes/:id`,
-                element: <ChefRecipes/>,
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main />,
+    errorElement: <ErrorPage />,
+    loader: serverData,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: `/recipes/:id`,
+        element: (
+          <PrivateRoute>
+            <ChefRecipes />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+]);
 export default router;

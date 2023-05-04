@@ -1,12 +1,22 @@
 import React from "react";
 import "./HeaderBanner.css";
+import { useNavigation } from "react-router-dom";
+import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 
 const HeaderBanner = ({ banner }) => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return (
+      <div className="min-h-[100vh] pt-96">
+        <LoadingSpinner />
+      </div>
+    );
+  }
   const { id, name, image, description } = banner;
   return (
     <>
       {/* about banner food */}
-      <img className="relative img" src={image} alt="" />
+      <img className="relative img transition-all duration-300  blur-sm hover:blur-none" src={image} alt="" />
       <h2
         className="absolute lg:top-10 md:top-5 top-2 drop-shadow-2xl lg:text-5xl md:text-3xl text-xl text-white font-mono"
         style={{ left: "50%", transform: "translateX(-50%)" }}

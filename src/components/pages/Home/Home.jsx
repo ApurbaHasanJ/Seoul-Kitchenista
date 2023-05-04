@@ -6,21 +6,14 @@ import Chefs from "../../sections/Chefs/Chefs";
 import { ServerData } from "../../layouts/Main/Main";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useNavigation } from "react-router-dom";
+import Event from "../../sections/Events/Event";
+import OrderRecipes from "../../sections/OrderNow/OrderRecipes";
 
 const Home = () => {
   const serverData = useContext(ServerData);
-  // console.log(serverData);
   const [banners, setBanners] = useState([]);
-  // const [chefs, setChefs] = useState([]);
 
-  // set loading
-  const navigation = useNavigation();
-  if (navigation.state === "loading") {
-    return <LoadingSpinner />;
-  }
-   
-
-  //   header banner data
+  // header banner data
   useEffect(() => {
     fetch(
       "https://seoul-kitchenista-server-apurbahasanj.vercel.app/banner-food"
@@ -33,16 +26,6 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  //   chef data section
-  // useEffect(() => {
-  //   fetch("https://seoul-kitchenista-server-apurbahasanj.vercel.app/chef")
-  //     .then((res) => res.json())
-  //     .then((data) => setChefs(data))
-  //     .catch((error) => console.log(error.message));
-  // }, []);
-
-  // console.log(chefs);
 
   return (
     <div>
@@ -62,6 +45,12 @@ const Home = () => {
           <HeaderBanner banner={banner} key={banner.id} />
         ))}
       </Carousel>
+
+      {/* Event section */}
+      <Event />
+
+      {/* Our Recipes */}
+      <OrderRecipes />
 
       {/* chef section */}
       <>

@@ -15,15 +15,14 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // console.log('user:', user);
 
-
   // Loading spinner
-  if (loading) {
-    return (
-      <div className="min-h-[100vh] pt-96">
-        <LoadingSpinner />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-[100vh] pt-96">
+  //       <LoadingSpinner />
+  //     </div>
+  //   );
+  // }
 
   // Handle Logout
   const handleLogout = () => {
@@ -35,7 +34,7 @@ const Navbar = () => {
   };
 
   // console.log(user);
-  
+
   return (
     <div className=" px-4 py-2 ">
       <div className="my-container relative mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl flex items-center justify-between">
@@ -71,11 +70,11 @@ const Navbar = () => {
           </li>
           {user && (
             <li>
-              {user?.photoURL ? (
+              {user.photoURL ? (
                 <img
                   className="lg:w-13 lg:h-13 md:h-10 md:w-10 h-7 w-7 rounded-full"
-                  title={user?.displayName}
-                  src={user?.photoURL}
+                  title={user.displayName}
+                  src={user.photoURL}
                   alt="User.png"
                 />
               ) : (

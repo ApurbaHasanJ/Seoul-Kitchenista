@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useContext } from "react";
@@ -27,6 +27,8 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message)
+        
       });
   };
 
@@ -37,6 +39,7 @@ const Login = () => {
         const loggedUser = result.user;
         toast.success("Sign in Successfully");
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
@@ -50,11 +53,17 @@ const Login = () => {
         const loggedUser = result.user;
         toast.success("Sign in Successfully");
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="my-20">
       <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">

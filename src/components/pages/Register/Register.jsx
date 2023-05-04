@@ -1,10 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
   const [show, setShow] = useState(false);
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  // get route path
+  const path = location?.state?.pathname || '/'
   //   const [confirmShow, setConfirmShow] = useState(false);
   const { createUser, userProfile, continueWithGoogle, continueWithGithub } =
     useContext(AuthContext);
@@ -28,6 +33,7 @@ const Register = () => {
         toast.success("Sign Up Successfully");
         form.reset();
         console.log(loggedUser);
+        navigate(path, { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -42,6 +48,7 @@ const Register = () => {
         const loggedUser = result.user;
         toast.success("Sign in Successfully");
         console.log(loggedUser);
+        navigate(path, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
@@ -55,11 +62,17 @@ const Register = () => {
         const loggedUser = result.user;
         toast.success("Sign in Successfully");
         console.log(loggedUser);
+        navigate(path, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="my-20">
       <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
@@ -96,7 +109,6 @@ const Register = () => {
               id="photo"
               className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="https://exaple.jpg"
-              
             />
           </div>
           <div className="mb-6">
