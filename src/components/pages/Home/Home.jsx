@@ -12,7 +12,14 @@ import OrderRecipes from "../../sections/OrderNow/OrderRecipes";
 const Home = () => {
   const serverData = useContext(ServerData);
   const [banners, setBanners] = useState([]);
-
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return (
+      <div className="min-h-[100vh] pt-96">
+        <LoadingSpinner />
+      </div>
+    );
+  }
   // header banner data
   useEffect(() => {
     fetch(

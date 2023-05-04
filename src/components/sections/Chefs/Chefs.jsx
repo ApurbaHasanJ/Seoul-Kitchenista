@@ -1,7 +1,9 @@
 import React from "react";
+import './Chefs.css'
 import { Link, useNavigation } from "react-router-dom";
 import { FaArrowRight, FaThumbsUp } from "react-icons/fa";
 import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
+import LazyLoad from "react-lazy-load";
 
 const Chefs = ({ chef }) => {
   
@@ -15,7 +17,9 @@ const Chefs = ({ chef }) => {
     <div>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to={`/recipes/${id}`}>
+          <LazyLoad   threshold={0.99}>
           <img className="rounded-t-lg" src={photo} alt="" />
+          </LazyLoad>
         </Link>
         <div className="p-5">
           <h5 className="mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

@@ -26,7 +26,7 @@ const Event = () => {
       <div className="mt-6 grid lg:grid-cols-3 justify-items-center gap-4 mx-auto">
         <div className="text-center">
           <div className="lg:h-96 lg:w-96 w-56 h-56 flex items-center justify-center mx-auto">
-            <div className="bg-black mx-auto lg:text-5xl text-lg rounded-full flex justify-center items-center hover:lg:text-6xl hover:text-2xl lg:w-52 lg:h-52 hover:lg:w-60 hover:lg:h-60 hover:w-28 hover:h-28 w-20 h-20 text-yellow-500 ">
+            <div className="bg-black mx-auto lg:text-5xl duration-700 text-lg rounded-full flex justify-center items-center hover:lg:text-6xl hover:text-2xl lg:w-52 lg:h-52 hover:lg:w-60 hover:lg:h-60 hover:w-28 hover:h-28 w-20 h-20 text-yellow-500 ">
               <HiOutlineCake />
             </div>
           </div>
@@ -39,7 +39,7 @@ const Event = () => {
         </div>
         <div className="text-center">
           <div className="lg:h-96 lg:w-96 w-56 h-56 flex items-center justify-center mx-auto">
-            <div className="bg-black mx-auto lg:text-5xl text-lg rounded-full flex justify-center items-center hover:lg:text-6xl hover:text-2xl lg:w-52 lg:h-52 hover:lg:w-60 hover:lg:h-60 hover:w-28 hover:h-28 w-20 h-20 text-yellow-500 ">
+            <div className="bg-black mx-auto duration-700 lg:text-5xl text-lg rounded-full flex justify-center items-center hover:lg:text-6xl hover:text-2xl lg:w-52 lg:h-52 hover:lg:w-60 hover:lg:h-60 hover:w-28 hover:h-28 w-20 h-20 text-yellow-500 ">
               <SlPeople />
             </div>
           </div>
@@ -52,7 +52,7 @@ const Event = () => {
         </div>
         <div className="text-center">
           <div className="lg:h-96 lg:w-96 w-56 h-56 flex items-center justify-center mx-auto">
-            <div className="bg-black mx-auto lg:text-5xl text-lg rounded-full flex justify-center items-center hover:lg:text-6xl hover:text-2xl lg:w-52 lg:h-52 hover:lg:w-60 hover:lg:h-60 hover:w-28 hover:h-28 w-20 h-20 text-yellow-500 ">
+            <div className="bg-black mx-auto duration-700 lg:text-5xl text-lg rounded-full flex justify-center items-center hover:lg:text-6xl hover:text-2xl lg:w-52 lg:h-52 hover:lg:w-60 hover:lg:h-60 hover:w-28 hover:h-28 w-20 h-20 text-yellow-500 ">
               <GiBowTieRibbon />
             </div>
           </div>

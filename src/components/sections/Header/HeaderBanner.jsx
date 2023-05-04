@@ -4,6 +4,7 @@ import { useNavigation } from "react-router-dom";
 import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 
 const HeaderBanner = ({ banner }) => {
+  
   const navigation = useNavigation();
   if (navigation.state === "loading") {
     return (
@@ -17,15 +18,9 @@ const HeaderBanner = ({ banner }) => {
     <>
       {/* about banner food */}
       <img className="relative img transition-all duration-300  blur-sm hover:blur-none" src={image} alt="" />
-      <h2
-        className="absolute lg:top-10 md:top-5 top-2 drop-shadow-2xl lg:text-5xl md:text-3xl text-xl text-white font-mono"
-        style={{ left: "50%", transform: "translateX(-50%)" }}
-      >
-        Delicious recipes awaiting
-      </h2>
       <div
-        className="absolute drop-shadow-2xl lg:left-12 left-2 top-2/4 lg:top-1/3 text-left lg:w-1/2"
-        style={{ transform: "translateY(-60%)" }}
+        className="absolute drop-shadow-2xl top-1/2  lg:top-1/3 text-center left-1/2 lg:w-1/2"
+        style={{ transform: "translate(-50%,-50%)" }}
       >
         <h2 className="mb-3 lg:text-7xl md:text-5xl text-xl font-serif text-white">
           {name}

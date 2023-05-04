@@ -8,21 +8,10 @@ import {
 } from "@heroicons/react/24/solid";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../providers/AuthProvider";
-import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // console.log('user:', user);
-
-  // Loading spinner
-  // if (loading) {
-  //   return (
-  //     <div className="min-h-[100vh] pt-96">
-  //       <LoadingSpinner />
-  //     </div>
-  //   );
-  // }
 
   // Handle Logout
   const handleLogout = () => {
@@ -45,7 +34,7 @@ const Navbar = () => {
             src="https://i.postimg.cc/MpC00ZfX/chef.png"
             alt="Company Logo"
           />
-          <span className="ml-2 text-green-900 lg:text-3xl md:text-2xl text-xl font-bold tracking-wide ">
+          <span className="ml-2 text-slate-900 lg:text-3xl md:text-2xl text-xl font-bold tracking-wide ">
             Seoul Kitchenista
           </span>
         </Link>

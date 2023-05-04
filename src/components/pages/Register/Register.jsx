@@ -8,8 +8,9 @@ const Register = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  // get route path
-  const path = location?.state?.pathname || '/'
+  // get redirect path
+  const path = location?.state?.from?.pathname || '/'
+
   //   const [confirmShow, setConfirmShow] = useState(false);
   const { createUser, userProfile, continueWithGoogle, continueWithGithub } =
     useContext(AuthContext);
@@ -22,9 +23,9 @@ const Register = () => {
     const password = form.password.value;
     // console.log(email, password);
 
-    if (password.length < 6) {
-      toast.error("Password must be at least 6 characters");
-    }
+    // if (password.length < 6) {
+    //   toast.error("Password must be at least 6 characters");
+    // }
 
     createUser(email, password)
       .then((result) => {
@@ -32,12 +33,12 @@ const Register = () => {
         const loggedUser = result.user;
         toast.success("Sign Up Successfully");
         form.reset();
-        console.log(loggedUser);
+        // console.log(loggedUser);
         navigate(path, { replace: true });
       })
       .catch((err) => {
         console.log(err);
-        toast.error(err.message);
+        toast.error(err.message.split("auth/")[1].slice(0, -2));
       });
   };
 
@@ -162,7 +163,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="text-white btn  focus:ring-4 focus:outline-none flex justify-center w-full font-medium rounded-lg "
+            className="text-white btn focus:ring-orange-300 focus:ring-4 focus:outline-none flex justify-center w-full font-medium rounded-lg "
           >
             Register
           </button>

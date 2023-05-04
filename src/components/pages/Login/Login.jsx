@@ -12,7 +12,11 @@ const Login = () => {
   const [show, setShow] = useState(false);
 
   console.log("login page", location);
+
+  // get redirect path
   const from = location.state?.from?.pathname || "/";
+
+  // handle login
   const handleLogin = (e) => {
     e.preventDefault();
     const htmlForm = e.target;
@@ -27,8 +31,7 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
-        toast.error(err.message)
-        
+        toast.error(err.message.split("auth/")[1].slice(0, -2));
       });
   };
 
@@ -122,7 +125,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="text-white btn  focus:ring-4 focus:outline-none flex justify-center w-full font-medium rounded-lg "
+            className="text-white btn  focus:ring-4 focus:ring-orange-300 focus:outline-none flex justify-center w-full font-medium rounded-lg "
           >
             Login
           </button>
@@ -130,7 +133,11 @@ const Login = () => {
         <div className="mb-4">
           <p className="text-center text-gray-700 mt-2">
             Don't Have An Account ?{" "}
-            <Link to="/register" className="text-red-700 hover:underline">
+            <Link
+              to="/register"
+              state={location.state}
+              className="text-red-700 hover:underline"
+            >
               Register
             </Link>
           </p>

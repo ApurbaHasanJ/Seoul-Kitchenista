@@ -9,6 +9,7 @@ import {
   BsStarHalf,
 } from "react-icons/bs";
 import Rating from "react-rating";
+import { toast } from "react-hot-toast";
 
 const Recipes = ({ recipe }) => {
   const [favorite, setFavorite] = useState(false);
@@ -16,15 +17,16 @@ const Recipes = ({ recipe }) => {
   // destructure recipe
   const { photo, name, method, ingredients, rating } = recipe;
 
+  // Handle favorites
   const handleFavorites = () => {
-    setFavorite(!favorite);
-    console.log(favorite);
+    setFavorite(true);
+    toast.success("Added to favorites!");
   };
+  ;
 
   console.log(recipe);
   return (
-    <div>
-      <div className="max-w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="bg-orange-100 p-10 lg:pb-0 lg:pt-20">
           <img className="rounded-t-lg mx-auto" src={photo} alt="" />
         </div>
@@ -78,7 +80,6 @@ const Recipes = ({ recipe }) => {
 
         </div>
       </div>
-    </div>
   );
 };
 
