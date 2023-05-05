@@ -66,7 +66,7 @@ const ChefRecipes = () => {
 
       {/* recipes */}
       <>
-        <h1 className="bg-orange-400 p-2  whitespace-nowrap  mt-20 font-mono text-3xl md:ml-12 lg:ml-20 ml-3 w-64 text-center mr-auto text-white">
+        <h1 className="bg-orange-400 py-2 px-6  mt-12 font-mono text-3xl ml-3 md:ml-12 lg:ml-20 inline-block text-center mr-auto text-white">
           Chef Special's
         </h1>
         <div className=" flex flex-wrap   my-container gap-9">

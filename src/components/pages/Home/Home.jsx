@@ -7,6 +7,7 @@ import { ServerData } from "../../layouts/Main/Main";
 import Event from "../../sections/Events/Event";
 import OrderRecipes from "../../sections/OrderNow/OrderRecipes";
 import { useLoaderData } from "react-router-dom";
+import Feedbacks from "../../sections/CoustomersFeedback/Feedbacks/Feedbacks";
 
 const Home = () => {
   const banners = useLoaderData()
@@ -51,7 +52,7 @@ const Home = () => {
           <h1 className="lg:text-7xl text-3xl mt-20 mb-3 font-mono uppercase text-center text-slate-800">
             <em className="font-italic">Amazing Team</em>
           </h1>
-          <p className=" text-slate-800 font-mono text-center text-2xl dark:text-gray-400">
+          <p className=" text-slate-800 font-mono text-center lg:text-2xl md:text-lg text-base dark:text-gray-400">
             <em className="font-italic">
               {" "}
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
@@ -60,7 +61,7 @@ const Home = () => {
             </em>
           </p>
         </div>
-        <h1 className="bg-orange-400 py-2  mt-20 font-mono text-3xl md:ml-12 lg:ml-20 w-56 text-center mr-auto text-white">
+        <h1 className="bg-orange-400 py-2 px-6  mt-12 font-mono text-3xl ml-3 md:ml-12 lg:ml-20 inline-block text-center mr-auto text-white">
           Our Chefs
         </h1>
 
@@ -70,7 +71,11 @@ const Home = () => {
             <Chefs key={chef.id} chef={chef} />
           ))}
         </div>
+
+        {/* Customers Feedbacks */}
+        <Feedbacks/>
       </>
+
     </>
   );
 };

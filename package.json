@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui": "^4.2.6",
+    "@coreui/react": "^4.8.0",
     "@heroicons/react": "^2.0.17",
     "@react-pdf/renderer": "^3.1.9",
     "file-saver": "^2.0.5",
@@ -17,6 +19,7 @@
     "flowbite": "^1.6.5",
     "html2pdf.js": "^0.10.1",
     "install": "^0.13.0",
+    "keen-slider": "^6.8.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "moment": "^2.29.4",
@@ -29,7 +32,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.11.0",
     "react-spinners": "^0.13.8",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "swiper": "^9.2.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

@@ -18,13 +18,13 @@ const OrderRecipes = () => {
       <h1 className="lg:text-7xl text-3xl font-mono uppercase text-center text-slate-800">
         <em className="font-italic">OUR MENU</em>
       </h1>
-      <p className=" text-slate-800 font-mono text-center text-2xl dark:text-gray-400">
+      <p className=" text-slate-800 font-mono text-center lg:text-2xl md:text-lg text-base dark:text-gray-400">
         <em className="font-italic">Seoul Kitchenista's tasty offer</em>
       </p>
 
       {/* food Items */}
       <>
-        <h1 className="bg-orange-400 py-2 lg:px-2  mt-20 font-mono text-3xl md:ml-12 lg:ml-20 w-56 text-center mr-auto text-white">
+        <h1 className="bg-orange-400 py-2 px-6  mt-12 font-mono text-3xl ml-3 md:ml-12 lg:ml-20 inline-block text-center mr-auto text-white">
           Hot Recipes
         </h1>
         <div className="my-container grid lg:grid-cols-3 justify-center gap-10">

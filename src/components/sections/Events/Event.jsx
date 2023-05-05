@@ -12,7 +12,7 @@ const Event = () => {
         <em className="font-italic">Best Service Ever</em>
       </h1>
       
-      <p className=" text-slate-800 font-mono text-center text-2xl dark:text-gray-400">
+      <p className=" text-slate-800 font-mono text-center lg:text-2xl md:text-lg text-base dark:text-gray-400">
         <em className="font-italic"> Our 3 Michelin Stars ensure that your experience regarding our cuisine
         will be one that you will not forget.</em>
       </p>
