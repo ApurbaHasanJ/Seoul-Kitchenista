@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import './Register.css'
 
 const Register = () => {
   const [show, setShow] = useState(false);
@@ -76,7 +77,7 @@ const Register = () => {
 
   return (
     <div className="my-20">
-      <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
+      <h3 className=" text-2xl text-slate-900 text-center font-bold border-b pb-5 mb-5">
         Register your account
       </h3>
       <div className="my-container md:w-4/6 lg:w-3/6 ">
@@ -84,7 +85,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="name"
-              className="block mb-2 text-md font-medium text-green-900 dark:text-white"
+              className="block mb-2 text-md font-medium text-slate-900 dark:text-white"
             >
               Your name
             </label>
@@ -92,7 +93,7 @@ const Register = () => {
               type="text"
               name="name"
               id="name"
-              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-orange-300 focus:border-orange-300 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-orange-300 dark:focus:border-orange-300"
               placeholder="Your name"
               required
             />
@@ -100,7 +101,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="photo"
-              className="block mb-2 text-md font-medium text-green-900 dark:text-white"
+              className="block mb-2 text-md font-medium text-slate-900 dark:text-white"
             >
               Your photo url (optional)
             </label>
@@ -108,14 +109,14 @@ const Register = () => {
               type="text"
               name="photo"
               id="photo"
-              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-orange-300 focus:border-orange-300 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-orange-300 dark:focus:border-orange-300"
               placeholder="https://exaple.jpg"
             />
           </div>
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-2 text-md font-medium text-green-900 dark:text-white"
+              className="block mb-2 text-md font-medium text-slate-900 dark:text-white"
             >
               Your email
             </label>
@@ -123,7 +124,7 @@ const Register = () => {
               type="email"
               name="email"
               id="email"
-              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-orange-300 focus:border-orange-300 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-orange-300 dark:focus:border-orange-300"
               placeholder="Your email address"
               required
             />
@@ -131,7 +132,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-2 text-md font-medium text-green-900 dark:text-white"
+              className="block mb-2 text-md font-medium text-slate-900 dark:text-white"
             >
               Your password
             </label>
@@ -139,7 +140,7 @@ const Register = () => {
               type={show ? "text" : "password"}
               id="password"
               name="password"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-300 focus:border-orange-300 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-300 dark:focus:border-orange-300"
               required
               placeholder="Password"
             />
@@ -156,7 +157,7 @@ const Register = () => {
             </div>
             <label
               htmlFor="showPassword"
-              className="ml-2 text-sm font-medium text-green-900 dark:text-gray-300"
+              className="ml-2 text-sm font-medium text-slate-900 dark:text-gray-300"
             >
               Show password
             </label>

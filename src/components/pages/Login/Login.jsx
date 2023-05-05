@@ -69,7 +69,7 @@ const Login = () => {
 
   return (
     <div className="my-20">
-      <h3 className=" text-2xl text-green-900 text-center font-bold border-b pb-5 mb-5">
+      <h3 className=" text-2xl text-slate-900 text-center font-bold border-b pb-5 mb-5">
         Login your account
       </h3>
       <div className="my-container md:w-4/6 lg:w-3/6 ">
@@ -77,7 +77,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-green-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
             >
               Your email
             </label>
@@ -85,7 +85,7 @@ const Login = () => {
               type="email"
               id="email"
               name="email"
-              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border p-4  border-gray-300 text-gray-900  rounded-lg focus:ring-orange-300 focus:border-orange-300 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-md dark:text-white dark:focus:ring-orange-300 dark:focus:border-orange-300"
               placeholder="Your email address"
               required
             />
@@ -93,7 +93,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-2 text-md font-medium text-green-900 dark:text-white"
+              className="block mb-2 text-md font-medium text-slate-900 dark:text-white"
             >
               Your password
             </label>
@@ -101,7 +101,7 @@ const Login = () => {
               type={show ? "text" : "password"}
               id="password"
               name="password"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-300 focus:border-orange-300 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-300 dark:focus:border-orange-300"
               required
               placeholder="Password"
             />
@@ -118,7 +118,7 @@ const Login = () => {
             </div>
             <label
               htmlFor="showPassword"
-              className="ml-2 text-sm font-medium text-green-900 dark:text-gray-300"
+              className="ml-2 text-sm font-medium text-slate-900 dark:text-gray-300"
             >
               Show password
             </label>
