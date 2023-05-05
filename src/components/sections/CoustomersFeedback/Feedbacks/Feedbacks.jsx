@@ -53,7 +53,7 @@ const Feedbacks = () => {
           </em>
         </p>
       </div>
-      <h1 className="bg-orange-400 py-2 px-6  mt-12 font-mono text-3xl ml-3 md:ml-12 lg:ml-20 inline-block text-center mr-auto text-white">
+      <h1 className="sub-header">
         Customer Feedback
       </h1>
       <div

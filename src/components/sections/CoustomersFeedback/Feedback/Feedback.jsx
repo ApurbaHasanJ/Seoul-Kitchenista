@@ -6,7 +6,7 @@ const Feedback = ({ singleFeedback }) => {
   const { id, name, photo, feedback, rating, job } = singleFeedback;
 
   return (
-    <div className="bg-orange-100 text-center drop-shadow-lg p-9 h-full flex flex-col">
+    <div className="bg-orange-100 text-center rounded-md drop-shadow-lg p-9 h-full flex flex-col">
       <div className=" w-28 h-28 mx-auto mb-7">
         <img
           className="w-full h-full rounded-full object-cover"
