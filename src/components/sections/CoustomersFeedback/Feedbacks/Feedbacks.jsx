@@ -3,7 +3,10 @@ import Feedback from "../Feedback/Feedback";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
+// import "swiper/components/pagination/pagination.min.css";
+
 import "./Feedbacks.css";
 
 // import required modules
@@ -20,7 +23,21 @@ const Feedbacks = () => {
       .catch((err) => console.error(err.message));
   }, []);
 
-  //   console.log(feedbacks);
+
+//   handle stop on hover
+  const handleSwiperHover = () => {
+    if (swiperRef.current && swiperRef.current.swiper.autoplay.running) {
+      swiperRef.current.swiper.autoplay.stop();
+    }
+  };
+
+  const handleSwiperLeave = () => {
+    if (swiperRef.current && !swiperRef.current.swiper.autoplay.running) {
+      swiperRef.current.swiper.autoplay.start();
+    }
+  };
+
+
   return (
     <>
       <div className="my-container">
@@ -39,10 +56,13 @@ const Feedbacks = () => {
       <h1 className="bg-orange-400 py-2 px-6  mt-12 font-mono text-3xl ml-3 md:ml-12 lg:ml-20 inline-block text-center mr-auto text-white">
         Customer Feedback
       </h1>
-      <div className="mb-20 my-container">
+      <div
+        className="mb-20 my-container"
+        onMouseEnter={handleSwiperHover}
+        onMouseLeave={handleSwiperLeave}
+      >
         <Swiper
           ref={swiperRef}
-          slidesPerView={3}
           spaceBetween={30}
           autoplay={{
             delay: 2500,
@@ -51,9 +71,24 @@ const Feedbacks = () => {
           pagination={{
             clickable: true,
           }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
+          
         >
           {feedbacks.map((singleFeedback) => (
             <SwiperSlide key={singleFeedback.id}>

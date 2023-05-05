@@ -27,7 +27,7 @@ const OrderRecipes = () => {
         <h1 className="bg-orange-400 py-2 px-6  mt-12 font-mono text-3xl ml-3 md:ml-12 lg:ml-20 inline-block text-center mr-auto text-white">
           Hot Recipes
         </h1>
-        <div className="my-container grid lg:grid-cols-3 justify-center gap-10">
+        <div className="my-container grid lg:grid-cols-3 md:grid-cols-2 justify-center gap-10">
           {foodItems.map((foodItem) => (
             <FoodItem key={foodItem.id} foodItem={foodItem} />
           ))}
