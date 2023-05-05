@@ -3,21 +3,22 @@ import "./HeaderBanner.css";
 import { useNavigation } from "react-router-dom";
 import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 
+import { FaArrowRight } from "react-icons/fa";
+
 const HeaderBanner = ({ banner }) => {
-  
   const navigation = useNavigation();
   if (navigation.state === "loading") {
-    return (
-      <div className="min-h-[100vh] pt-96">
-        <LoadingSpinner />
-      </div>
-    );
-  }
+    return <LoadingSpinner />;
+  } 
   const { id, name, image, description } = banner;
+  // console.log(image);
   return (
-    <>
-      {/* about banner food */}
-      <img className="relative img transition-all duration-300  blur-sm hover:blur-none" src={image} alt="" />
+    <div
+      className="relative bg-center bg-cover lg:h-screen h-96"
+      style={{ backgroundImage: `url(${image})` }}
+    >
+      <div className="absolute inset-0 bg-black opacity-30 hover:opacity-0 duration-700"></div>
+      {/* banner description */}
       <div
         className="absolute drop-shadow-2xl top-1/2  lg:top-1/3 text-center left-1/2 lg:w-1/2"
         style={{ transform: "translate(-50%,-50%)" }}
@@ -28,13 +29,14 @@ const HeaderBanner = ({ banner }) => {
         <p className="mb-3 text-gray-100 mt-4 lg:mt-0 text-xs md:text-base lg:text-lg pr-1 drop-shadow-2xl">
           {description}
         </p>
-        <button className="btn">Learn More</button>
+        <button className="btn grid gap-2"><span>Order Now</span>
+        <FaArrowRight/></button>
       </div>
 
       {/* our special */}
       <div className="hidden lg:block absolute bottom-12">
         {/* Burger */}
-        <div className="flex gap-5 absolute bottom-12 left-20 ">
+        <div className="flex gap-5 absolute bottom-12 md:left-8 lg:left-14 ">
           <div className="w-96">
             <img
               src="https://i.postimg.cc/xCgqkk7k/side-view-burger-with-minced-meat-caramelized-onion-sesame-seeds-lettuce-burger-bun-sauces-table.jpg"
@@ -50,7 +52,7 @@ const HeaderBanner = ({ banner }) => {
         </div>
 
         {/* Pizza */}
-        <div className="flex flex-row-reverse gap-5 absolute bottom-12 right-20">
+        <div className="flex flex-row-reverse gap-5 absolute bottom-12 md:right-8 lg:right-14">
           <div className="w-96">
             <img
               src="https://i.postimg.cc/kXGRbc77/mixed-pizza-with-various-ingridients.jpg"
@@ -65,7 +67,7 @@ const HeaderBanner = ({ banner }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

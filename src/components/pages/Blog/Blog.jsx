@@ -1,24 +1,12 @@
 import React from "react";
 import { useNavigation } from "react-router-dom";
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";import { saveAs } from 'file-saver';
-
-import { Document, Page, View } from "@react-pdf/renderer";
-
-const BlogPDF = () => {
-  return (
-    <Document>
-      <Page size="A4">
-        <View>
-          <Text>Example PDF</Text>
-        </View>
-      </Page>
-    </Document>
-  );
-};
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { MdOutlineSimCardDownload } from "react-icons/md";
+import html2pdf from "html2pdf.js";
 
 const handleDownloadPDF = () => {
-  const blob = new Blob([<BlogPDF />], { type: "application/pdf" });
-  saveAs(blob, "blog.pdf");
+  const element = document.getElementById("full-page");
+  html2pdf().from(element).save("full-page.pdf");
 };
 
 const Blogs = () => {
@@ -27,15 +15,19 @@ const Blogs = () => {
     return <LoadingSpinner />;
   }
 
-
   return (
-    <>
+    <div id="full-page">
       {/* header section */}
-      <section className=" relative drop-shadow-xl pb-6">
+      <section className=" drop-shadow-xl pb-6">
         <h3 className=" text-4xl text-black text-center font-bold border-b pb-5 mb-5">
           Blog
         </h3>
-        <button onClick={handleDownloadPDF} className="btn ml-2 lg:ml-16">Download pdf</button>
+        <button
+          onClick={handleDownloadPDF}
+          className="btn ml-2 lg:ml-16 flex gap-3"
+        >
+          <span>Download pdf</span> <MdOutlineSimCardDownload />
+        </button>
       </section>
 
       {/* Blog page body */}
@@ -161,7 +153,7 @@ const Blogs = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

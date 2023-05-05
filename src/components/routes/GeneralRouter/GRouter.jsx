@@ -19,6 +19,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: ()=>fetch('https://seoul-kitchenista-server-apurbahasanj.vercel.app/banner-food')
       },
       {
         path: "/blog",

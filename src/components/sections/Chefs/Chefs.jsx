@@ -1,15 +1,11 @@
 import React from "react";
 import "./Chefs.css";
-import { Link, useNavigation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaArrowRight, FaThumbsUp } from "react-icons/fa";
 import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 import LazyLoad from "react-lazy-load";
 
 const Chefs = ({ chef }) => {
-  const navigation = useNavigation();
-  if (navigation.state === "loading") {
-    return <LoadingSpinner />;
-  }
   // console.log(chef);
   const { id, chef_name, experience, likes, num_recipes, photo } = chef;
   return (

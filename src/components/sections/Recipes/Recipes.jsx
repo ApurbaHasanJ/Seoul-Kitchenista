@@ -21,7 +21,7 @@ const Recipes = ({ recipe }) => {
   };
   ;
 
-  console.log(recipe);
+  // console.log(recipe);
   return (
     <div className="max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="bg-orange-100 p-10 lg:pb-0 lg:pt-20">

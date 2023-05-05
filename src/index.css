@@ -19,5 +19,5 @@
 }
 
 .default {
-  @apply font-medium tracking-wide text-green-800 transition-colors duration-200 hover:text-lime-700;
+  @apply font-medium tracking-wide text-slate-700 transition-colors duration-200 hover:text-slate-900;
 }

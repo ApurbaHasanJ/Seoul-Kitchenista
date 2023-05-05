@@ -9,12 +9,8 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import LoadingSpinner from "../../pages/LoadingSpinner/LoadingSpinner";
 
 const Navbar = () => {
-  const { user, logOut, loading} = useContext(AuthContext);
+  const { user, logOut} = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  if(loading){
-    return <LoadingSpinner/>
-  }
 
   // Handle Logout
   const handleLogout = () => {
