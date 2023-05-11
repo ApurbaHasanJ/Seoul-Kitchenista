@@ -3,12 +3,14 @@ import { useNavigation } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { MdOutlineSimCardDownload } from "react-icons/md";
 import html2pdf from "html2pdf.js";
+import useTitle from "../../../hooks/useTitle";
 
 const handleDownloadPDF = () => {
   const element = document.getElementById("full-page");
   html2pdf().from(element).save("full-page.pdf");
 };
 
+useTitle('Blog')
 const Blogs = () => {
   const navigation = useNavigation();
   if (navigation.state === "loading") {

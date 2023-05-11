@@ -8,8 +8,10 @@ import Event from "../../sections/Events/Event";
 import OrderRecipes from "../../sections/OrderNow/OrderRecipes";
 import { useLoaderData } from "react-router-dom";
 import Feedbacks from "../../sections/CoustomersFeedback/Feedbacks/Feedbacks";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle('Home')
   const banners = useLoaderData()
   console.log(banners);
   const serverData = useContext(ServerData);

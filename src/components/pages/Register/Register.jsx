@@ -3,8 +3,10 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import './Register.css'
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
+  useTitle('Register')
   const [show, setShow] = useState(false);
   const location = useLocation()
   const navigate = useNavigate()
